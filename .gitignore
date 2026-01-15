@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Jupyter Notebooks (keep assignment4-cv.ipynb for reference, but ignore outputs)
+*.ipynb_checkpoints
+
+# Data directories
+data/
+*.jpg
+*.jpeg
+*.png
+*.JPEG
+*.JPG
+*.PNG
+
+# Model files
+*.pth
+*.pt
+*.ckpt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Memory snapshots
+fp16-model
+fp32-model
+
+
