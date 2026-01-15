@@ -140,23 +140,6 @@ r50_params = sum(p.numel() for p in resnet50_imagenet.parameters())
 python part1_model_loading.py
 ```
 
-### Expected Output
-
-```
-Using device: cuda
-
-Loading models on device: cuda
-Loading ResNet-50 (ImageNet pretrained)...
-Loading CLIP model (RN50)...
-
-============================================================
-MODEL PARAMETER COMPARISON
-============================================================
-CLIP Visual Encoder (RN50): 38,316,896 parameters
-ResNet-50 (ImageNet):       25,557,032 parameters
-Difference:                 12,759,864 parameters
-============================================================
-```
 
 ---
 
@@ -331,29 +314,6 @@ image_paths = [
 categories_path = "/path/to/imagenet1000_clsidx_to_labels.txt"
 
 predictions, probabilities, clip_model = main(image_paths, categories_path)
-```
-
-### Expected Output
-
-```
-Using device: cuda
-Testing CLIP on 2 images
-
-Loading CLIP model...
-Loading ImageNet labels...
-Loaded 1000 ImageNet categories
-
-Encoding text labels...
-Text features shape: torch.Size([10, 512])
-
-Encoding images...
-Image features shape: torch.Size([2, 512])
-
-Computing predictions...
-============================================================
-Image 1 is predicted to be in category: tench
-Image 2 is predicted to be in category: stingray
-============================================================
 ```
 
 ---
@@ -533,39 +493,6 @@ labels_ten = ['bald eagle', 'axolotl', ...]  # 10 labels to test
 results = main(image_path, labels_ten=labels_ten)
 ```
 
-### Expected Output
-
-```
-============================================================
-INFERENCE TIME COMPARISON
-============================================================
-FP32 mean inference time: 0.0087 s, std dev: 0.0008 s
-FP16 mean inference time: 0.0085 s, std dev: 0.0003 s
-Speedup: 1.02x
-============================================================
-
-============================================================
-PREDICTION COMPARISON
-============================================================
-FP32 Top-5 Predictions:
-  Class: scorpion, Probability: 0.1110
-  Class: centipede, Probability: 0.1085
-  ...
-
-FP16 Top-5 Predictions:
-  Class: scorpion, Probability: 0.1107
-  Class: centipede, Probability: 0.1082
-  ...
-
-Top-5 rankings match: True
-============================================================
-
-============================================================
-MEMORY USAGE COMPARISON
-============================================================
-FP32 peak memory: 245.32 MB
-FP16 peak memory: 122.66 MB
-Memory reduction: 50.0%
 ## Setup and Installation
 
 ### Prerequisites
